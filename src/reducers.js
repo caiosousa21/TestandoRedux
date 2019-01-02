@@ -38,15 +38,15 @@ function posts(
       isFetching: false,
       didInvalidate: false,
       items: action.posts,
-      lastUpdate: action.receivedAt
+      lastUpdated: action.receivedAt
     })
     default:
       return state
   }
 }
 
-function postsBySubreddit(state = {}, action){
-  switch(action.type){
+function postsBySubreddit(state = {}, action) {
+  switch (action.type) {
     case INVALIDATE_SUBREDDIT:
     case RECEIVE_POSTS:
     case REQUEST_POSTS:
@@ -54,10 +54,9 @@ function postsBySubreddit(state = {}, action){
         [action.subreddit]: posts(state[action.subreddit], action)
       })
     default:
-    return state
+      return state
   }
 }
-
 const rootReducer = combineReducers({
   postsBySubreddit,
   selectedSubreddit
