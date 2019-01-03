@@ -7,9 +7,14 @@ import renderer from 'react-test-renderer';
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('index', () => {
-    it('Renderizando index', () => {
+    it('Renderizando Picker', () => {
         const wrapper = shallow(<Picker value='' options={[]} />);
         expect(wrapper.exists()).toBe(true);
+    })
+    it('Testando se está inserindo as opções', () => {
+        const wrapper = shallow(<Picker value='' options={['a','b']} />);
+        const x = wrapper.find('option');
+        expect(x.exists()).toBe(true);
     })
     it('Testando interface com snapshots', () => {
         const tree = renderer.create(<Picker value='' options={[]} />).toJSON();
@@ -17,7 +22,7 @@ describe('index', () => {
     })
     it('Testando método onChange utilizando uma mock', () => {
         const mockFn = jest.fn();
-        const wrapper = shallow(<Picker value='' options={[]} />);
+        const wrapper = shallow(<Picker value='' options={[]} onChange={mockFn}/>);
         wrapper.find('select').simulate('change',{target:{value:'bar'}});
         expect(mockFn).toBeCalled();
     })

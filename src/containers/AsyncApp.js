@@ -5,7 +5,7 @@ import { selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit } from '../act
 import Picker from '../components/Picker'
 import Posts from '../components/Posts'
 
-class AsyncApp extends Component {
+export class AsyncApp extends Component {
     componentDidMount() {
         const { dispatch, selectedSubreddit } = this.props
         dispatch(fetchPostsIfNeeded(selectedSubreddit))
@@ -68,7 +68,7 @@ AsyncApp.propTypes = {
     dispatch: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
     const { selectedSubreddit, postsBySubreddit } = state
     const { isFetching, lastUpdated, items: posts } = postsBySubreddit[
         selectedSubreddit

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index Testando interface com snapshots 1`] = `
+<div>
+  <span>
+    <h1>
+      
+    </h1>
+    <select
+      onChange={[Function]}
+      value=""
+    >
+      <option
+        value="reactjs"
+      >
+        reactjs
+      </option>
+      <option
+        value="frontend"
+      >
+        frontend
+      </option>
+    </select>
+  </span>
+  <p>
+    <button
+      onClick={[Function]}
+    >
+      Refresh
+    </button>
+  </p>
+  
+  <h2>
+    Empty
+  </h2>
+</div>
+`;
